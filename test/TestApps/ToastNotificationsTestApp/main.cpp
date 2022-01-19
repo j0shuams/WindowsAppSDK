@@ -186,6 +186,38 @@ bool VerifyFailedToastAssetsWithNullIconPath_Unpackaged()
     return false;
 }
 
+bool VerifyFailedGetHistory()
+{
+    try
+    {
+        winrt::ToastAssets assets(L"ToastNotificationApp", nullptr);
+
+        auto activationInfo = winrt::ToastActivationInfo::CreateFromToastAssets(assets);
+    }
+    catch (...)
+    {
+        return winrt::to_hresult() == E_POINTER;
+    }
+
+    return false;
+}
+
+bool VerifyFailedGetHistory_Unpackaged()
+{
+    try
+    {
+        winrt::ToastAssets assets(L"ToastNotificationApp", nullptr);
+
+        auto activationInfo = winrt::ToastActivationInfo::CreateFromToastAssets(assets);
+    }
+    catch (...)
+    {
+        return winrt::to_hresult() == E_POINTER;
+    }
+
+    return false;
+}
+
 std::string unitTestNameFromLaunchArguments(const winrt::ILaunchActivatedEventArgs& launchArgs)
 {
     std::string unitTestName = to_string(launchArgs.Arguments());

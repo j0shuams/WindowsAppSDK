@@ -212,5 +212,10 @@ namespace Test::ToastNotifications
         {
             RunTestUnpackaged(L"VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged", testWaitTime());
         }
+
+        TEST_METHOD(VerifyFailedToastAssetsWithNullIconPath_Unpackaged)
+        {
+            RunTestUnpackaged(L"VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged", testWaitTime());
+        }
     };
 }
