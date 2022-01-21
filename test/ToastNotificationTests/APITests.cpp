@@ -213,9 +213,53 @@ namespace Test::ToastNotifications
             RunTestUnpackaged(L"VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged", testWaitTime());
         }
 
-        TEST_METHOD(VerifyFailedToastAssetsWithNullIconPath_Unpackaged)
+#if 0
+        winrt::Windows::Foundation::IAsyncAction RemoveWithIdentiferAsync(uint32_t toastIdentifier);
+        winrt::Windows::Foundation::IAsyncAction RemoveWithTagAsync(hstring tag);
+        winrt::Windows::Foundation::IAsyncAction RemoveWithTagGroupAsync(hstring tag, hstring group);
+        winrt::Windows::Foundation::IAsyncAction RemoveGroupAsync(hstring group);
+        winrt::Windows::Foundation::IAsyncAction RemoveAllAsync();
+        winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Foundation::Collections::IVector<winrt::Microsoft::Windows::ToastNotifications::ToastNotification>> GetAllAsync();
+#endif
+
+        TEST_METHOD(VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier)
         {
-            RunTestUnpackaged(L"VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged", testWaitTime());
+            RunTest(L"VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier_Unpackaged)
+        {
+            RunTestUnpackaged(L"VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier_Unpackaged", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithTagAsyncUsingEmptyTag)
+        {
+            RunTest(L"VerifyFailedRemoveWithTagAsyncUsingEmptyTag", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithTagAsyncUsingEmptyTag_Unpackaged)
+        {
+            RunTestUnpackaged(L"VerifyFailedRemoveWithTagAsyncUsingEmptyTag_Unpackaged", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup)
+        {
+            RunTest(L"VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup_Unpackaged)
+        {
+            RunTestUnpackaged(L"VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup_Unpackaged", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup)
+        {
+            RunTest(L"VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup", testWaitTime());
+        }
+
+        TEST_METHOD(VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup_Unpackaged)
+        {
+            RunTestUnpackaged(L"VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup_Unpackaged", testWaitTime());
         }
     };
 }

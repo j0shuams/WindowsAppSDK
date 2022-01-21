@@ -186,35 +186,43 @@ bool VerifyFailedToastAssetsWithNullIconPath_Unpackaged()
     return false;
 }
 
-bool VerifyFailedGetHistory()
+bool VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier()
 {
-    try
-    {
-        winrt::ToastAssets assets(L"ToastNotificationApp", nullptr);
-
-        auto activationInfo = winrt::ToastActivationInfo::CreateFromToastAssets(assets);
-    }
-    catch (...)
-    {
-        return winrt::to_hresult() == E_POINTER;
-    }
-
     return false;
 }
 
-bool VerifyFailedGetHistory_Unpackaged()
+bool VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier_Unpackaged()
 {
-    try
-    {
-        winrt::ToastAssets assets(L"ToastNotificationApp", nullptr);
+    return false;
+}
 
-        auto activationInfo = winrt::ToastActivationInfo::CreateFromToastAssets(assets);
-    }
-    catch (...)
-    {
-        return winrt::to_hresult() == E_POINTER;
-    }
+bool VerifyFailedRemoveWithTagAsyncUsingEmptyTag()
+{
+    return false;
+}
 
+bool VerifyFailedRemoveWithTagAsyncUsingEmptyTag_Unpackaged()
+{
+    return false;
+}
+
+bool VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup()
+{
+    return false;
+}
+
+bool VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup_Unpackaged()
+{
+    return false;
+}
+
+bool VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup()
+{
+    return false;
+}
+
+bool VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup_Unpackaged()
+{
     return false;
 }
 
@@ -243,6 +251,14 @@ std::map<std::string, bool(*)()> const& GetSwitchMapping()
         { "VerifyFailedToastAssetsWithEmptyDisplayName_Unpackaged", &VerifyFailedToastAssetsWithEmptyDisplayName_Unpackaged },
         { "VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged", &VerifyFailedToastAssetsWithEmptyIconPath_Unpackaged },
         { "VerifyFailedToastAssetsWithNullIconPath_Unpackaged", &VerifyFailedToastAssetsWithNullIconPath_Unpackaged },
+        { "VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier", &VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier },
+        { "VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier_Unpackaged", &VerifyFailedRemoveWithIdentiferAsyncUsingZeroedToastIdentifier_Unpackaged },
+        { "VerifyFailedRemoveWithTagAsyncUsingEmptyTag", &VerifyFailedRemoveWithTagAsyncUsingEmptyTag },
+        { "VerifyFailedRemoveWithTagAsyncUsingEmptyTag_Unpackaged", &VerifyFailedRemoveWithTagAsyncUsingEmptyTag_Unpackaged },
+        { "VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup", &VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup },
+        { "VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup_Unpackaged", &VerifyFailedRemoveWithTagGroupAsyncUsingEmptyTagAndGroup_Unpackaged },
+        { "VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup", &VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup },
+        { "VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup_Unpackaged", &VerifyFailedRemoveWithGroupAsyncUsingEmptyGroup_Unpackaged },
     };
     return switchMapping;
 }
